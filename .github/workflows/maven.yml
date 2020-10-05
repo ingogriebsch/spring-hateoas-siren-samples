@@ -31,4 +31,4 @@ jobs:
           java-version: 1.8
 
       - name: Verify artifacts
-        run: mvn -B verify
+        run: mvn -B -Psonatype-snapshot-repository verify
