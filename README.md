@@ -5,7 +5,7 @@
 A repository that contains examples for [Spring HATEOAS Siren][] to showcase how to use the features provided by the library.
 
 Each example marks the keypoints to consider with the keyword 'HINT'.
-So you can easily search for the places to understand what to do in the corresponding case.
+This way you can easily find the parts that are of interest in the respective example.
 
 ## Modules
 *   **setup-boot** shows how to set up the [Spring HATEOAS Siren][] library in a [Spring Boot][] application.
