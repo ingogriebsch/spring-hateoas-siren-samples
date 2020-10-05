@@ -9,7 +9,7 @@ Each example marks the keypoints to consider with the keyword 'HINT'.
 So you can easily search for the places to understand what to do in the corresponding case.
 
 ## Modules
-*   **setup-boot** shows how to set up the [Spring HATEOAS Siren][] library in a [Spring Boot][] application.
+*   **[setup-boot](./spring-boot)** shows how to set up the [Spring HATEOAS Siren][] library in a [Spring Boot][] application.
 
 ## Note
 The example projects make use of the Lombok plugin. 
