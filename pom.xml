@@ -34,6 +34,7 @@
     </developers>
 
     <modules>
+        <module>setup-boot</module>
     </modules>
 
     <scm>
@@ -152,17 +153,6 @@
                         <id>default-check</id>
                         <goals>
                             <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin><!-- https://maven.apache.org/plugins/maven-source-plugin/ -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>jar-no-fork</goal>
                         </goals>
                     </execution>
                 </executions>
