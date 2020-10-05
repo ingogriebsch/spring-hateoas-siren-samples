@@ -1,4 +1,5 @@
 # Spring HATEOAS Siren Samples
+[![Actions Status](https://github.com/ingogriebsch/spring-hateoas-siren-samples/workflows/build/badge.svg?branch=master)](https://github.com/ingogriebsch/spring-hateoas-siren-samples/actions)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 A repository that contains examples for [Spring HATEOAS Siren][] to showcase how to use the features provided by the library.
