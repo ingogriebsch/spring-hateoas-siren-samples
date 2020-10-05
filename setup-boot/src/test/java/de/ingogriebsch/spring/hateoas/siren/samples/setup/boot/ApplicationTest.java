@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toSet;
 
 import static de.ingogriebsch.spring.hateoas.siren.MediaTypes.SIREN_JSON;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.type;
 
 import java.util.Collection;
 import java.util.Map;
@@ -50,7 +51,8 @@ class ApplicationTest {
         Optional<Module> module = mappingInformations.stream().map(mi -> mi.getJacksonModule())
             .filter(m -> m.getModuleName().equals("siren-module")).findAny();
 
-        assertThat(module).get().hasFieldOrPropertyWithValue("version",
-            new Version(1, 0, 0, null, "de.ingogriebsch.hateoas", "spring-hateoas-siren"));
+        assertThat(module).get().extracting("version", type(Version.class))
+            .hasFieldOrPropertyWithValue("groupId", "de.ingogriebsch.hateoas")
+            .hasFieldOrPropertyWithValue("artifactId", "spring-hateoas-siren");
     }
 }
