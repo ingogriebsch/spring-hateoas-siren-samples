@@ -7,6 +7,7 @@ Each example marks the keypoints to consider with the keyword 'HINT'.
 So you can easily search for the places to understand what to do in the corresponding case.
 
 ## Modules
+*   **setup-boot** shows how to set up the [Spring HATEOAS Siren][] library in a [Spring Boot][] application.
 
 ## Note
 The example projects make use of the Lombok plugin. 
@@ -19,4 +20,5 @@ This code is open source software licensed under the [Apache 2.0 License][].
 [Apache 2.0 License]: https://www.apache.org/licenses/LICENSE-2.0.html
 [Lombok]: https://projectlombok.org/
 [Lombok download]: https://projectlombok.org/download/
+[Spring Boot]: https://spring.io/projects/spring-boot/
 [Spring HATEOAS Siren]: https://ingogriebsch.github.io/spring-hateoas-siren/
