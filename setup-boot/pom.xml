@@ -49,6 +49,13 @@
 
     <build>
         <plugins>
+            <plugin><!-- https://code.revelc.net/formatter-maven-plugin -->
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <configuration>
+                    <configFile>../etc/ide/eclipse.java-formatter.xml</configFile>
+                </configuration>
+            </plugin>        
             <plugin><!-- https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/maven-plugin -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

@@ -130,7 +130,7 @@
                 <groupId>net.revelc.code.formatter</groupId>
                 <artifactId>formatter-maven-plugin</artifactId>
                 <configuration>
-                    <configFile>../etc/ide/eclipse.java-formatter.xml</configFile>
+                    <configFile>etc/ide/eclipse.java-formatter.xml</configFile>
                 </configuration>
                 <executions>
                     <execution>
