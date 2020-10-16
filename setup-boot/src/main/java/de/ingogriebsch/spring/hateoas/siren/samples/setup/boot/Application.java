@@ -23,6 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * The main entry point of the application.
  * 
  * @author Ingo Griebsch
+ * @since 1.0.0
  */
 @SpringBootApplication
 class Application {
