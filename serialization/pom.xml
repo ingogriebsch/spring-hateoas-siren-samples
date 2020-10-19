@@ -10,7 +10,7 @@
 
     <artifactId>spring-hateoas-siren-samples-serialization</artifactId>
 
-    <name>Spring HATEOAS Siren Samples Setup Serialization</name>
+    <name>Spring HATEOAS Siren Samples Serialization</name>
     <description>A repository that shows how to serialize different types of representation models with the Spring HATEOAS Siren library.</description>
 
     <properties>
