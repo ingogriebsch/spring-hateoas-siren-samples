@@ -1,0 +1,26 @@
+{
+    "class": [
+        "collection"
+    ],
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons/search?namePattern={namePattern}"
+    }],
+    "actions": [{
+        "name": "insert",
+        "method": "POST",
+        "href": "http://localhost/persons",
+        "fields": [{
+            "name": "age",
+            "type": "number"
+        },{
+            "name": "email",
+            "type": "text"
+        },{
+            "name": "name",
+            "type": "text"
+        }]
+    }]
+}

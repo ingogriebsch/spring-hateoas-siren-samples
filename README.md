@@ -8,6 +8,7 @@ Each example marks the keypoints to consider with the keyword 'HINT'.
 This way you can easily find the parts that are of interest in the respective example.
 
 ## Modules
+*   **serialization** shows how to serialize different types of representation models with the Spring HATEOAS Siren library.
 *   **setup-boot** shows how to set up the [Spring HATEOAS Siren][] library in a [Spring Boot][] application.
 
 ## Note
