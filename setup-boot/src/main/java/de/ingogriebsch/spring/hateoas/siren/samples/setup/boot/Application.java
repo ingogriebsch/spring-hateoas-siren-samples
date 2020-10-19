@@ -26,7 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0.0
  */
 @SpringBootApplication
-class Application {
+public class Application {
 
     public static void main(String[] args) {
         run(Application.class, args);
