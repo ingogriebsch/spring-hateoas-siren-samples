@@ -41,11 +41,7 @@ import org.springframework.stereotype.Service;
 @Service
 class PersonService {
 
-    private static final Map<String, Person> persons = newHashMap();
-
-    boolean delete(@NonNull String id) {
-        return persons.remove(id) != null;
-    }
+    private final Map<String, Person> persons = newHashMap();
 
     Page<Person> findAll(@NonNull Pageable pageable) {
         return toPage(persons, pageable);
@@ -55,14 +51,18 @@ class PersonService {
         return Optional.ofNullable(persons.get(id));
     }
 
+    Iterable<Person> search(String namePattern) {
+        return persons.values().stream().filter(p -> p.getName().matches(namePattern)).collect(toList());
+    }
+
+    boolean exists(@NonNull String id) {
+        return persons.containsKey(id);
+    }
+
     Person insert(@NonNull PersonInput input) {
         Person person = new Person(valueOf(persons.size() + 1), input.getName(), input.getAge(), input.getEmail());
         persons.put(person.getId(), person);
         return person;
-    }
-
-    Iterable<Person> search(String namePattern) {
-        return persons.values().stream().filter(p -> p.getName().matches(namePattern)).collect(toList());
     }
 
     Optional<Person> update(@NonNull String id, @NonNull PersonInput input) {
@@ -71,6 +71,10 @@ class PersonService {
             return empty();
         }
         return of(update(person, input));
+    }
+
+    boolean delete(@NonNull String id) {
+        return persons.remove(id) != null;
     }
 
     private static Page<Person> toPage(Map<String, Person> persons, Pageable pageable) {
@@ -103,4 +107,5 @@ class PersonService {
         }
         return person;
     }
+
 }
