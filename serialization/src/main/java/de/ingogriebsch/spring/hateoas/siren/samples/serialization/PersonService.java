@@ -20,16 +20,13 @@ import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static java.util.stream.Collectors.toList;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import lombok.NonNull;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +41,7 @@ class PersonService {
     private final Map<String, Person> persons = newHashMap();
 
     Page<Person> findAll(@NonNull Pageable pageable) {
-        return toPage(persons, pageable);
+        return PageUtils.toPage(persons.values(), pageable);
     }
 
     Optional<Person> findOne(@NonNull String id) {
@@ -75,21 +72,6 @@ class PersonService {
 
     boolean delete(@NonNull String id) {
         return persons.remove(id) != null;
-    }
-
-    private static Page<Person> toPage(Map<String, Person> persons, Pageable pageable) {
-        int from = pageable.getPageNumber() * pageable.getPageSize();
-
-        List<Person> content;
-        if (from >= persons.size()) {
-            content = newArrayList();
-        } else {
-            int to = from + pageable.getPageSize();
-            to = to > persons.size() ? persons.size() : to;
-            content = newArrayList(persons.values()).subList(from, to);
-        }
-
-        return new PageImpl<>(content, pageable, persons.size());
     }
 
     private static Person update(Person person, PersonInput input) {
