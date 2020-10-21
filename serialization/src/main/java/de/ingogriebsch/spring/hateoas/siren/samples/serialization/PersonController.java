@@ -51,6 +51,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class PersonController {
 
+    static final String BASE_PATH = "/persons";
+    static final String FIND_ONE_PATH = "/{id}";
+    static final String SEARCH_PATH = "/search";
+    static final String UPDATE_PATH = "/{id}";
+    static final String DELETE_PATH = "/{id}";
+
     @NonNull
     private final PersonService personService;
     @NonNull

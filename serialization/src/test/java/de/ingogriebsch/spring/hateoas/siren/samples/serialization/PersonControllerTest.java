@@ -6,6 +6,11 @@ import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
 import static de.ingogriebsch.spring.hateoas.siren.MediaTypes.SIREN_JSON;
+import static de.ingogriebsch.spring.hateoas.siren.samples.serialization.PersonController.BASE_PATH;
+import static de.ingogriebsch.spring.hateoas.siren.samples.serialization.PersonController.DELETE_PATH;
+import static de.ingogriebsch.spring.hateoas.siren.samples.serialization.PersonController.FIND_ONE_PATH;
+import static de.ingogriebsch.spring.hateoas.siren.samples.serialization.PersonController.SEARCH_PATH;
+import static de.ingogriebsch.spring.hateoas.siren.samples.serialization.PersonController.UPDATE_PATH;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.assertj.core.util.Lists.newArrayList;
 import static org.mockito.Mockito.doReturn;
@@ -65,7 +70,7 @@ class PersonControllerTest {
         doReturn(new PageImpl<>(content, pageable, content.size())).when(personService).findAll(pageable);
         String responsePayload = jsonSource("findAll_should_return_a_matching_response_if_no_resource_is_available");
 
-        ResultActions resultActions = mockMvc.perform(get("/persons") //
+        ResultActions resultActions = mockMvc.perform(get(BASE_PATH) //
             .accept(SIREN_JSON) //
             .param("page", valueOf(pageable.getPageNumber())) //
             .param("size", valueOf(pageable.getPageSize())));
@@ -85,7 +90,7 @@ class PersonControllerTest {
         doReturn(new PageImpl<>(content, pageable, content.size())).when(personService).findAll(pageable);
         String responsePayload = jsonSource("findAll_should_return_a_matching_response_if_some_resources_are_available");
 
-        ResultActions resultActions = mockMvc.perform(get("/persons") //
+        ResultActions resultActions = mockMvc.perform(get(BASE_PATH) //
             .accept(SIREN_JSON));
 
         resultActions.andExpect(status().isOk()) //
@@ -98,7 +103,7 @@ class PersonControllerTest {
         String id = "3";
         doReturn(empty()).when(personService).findOne(id);
 
-        ResultActions resultActions = mockMvc.perform(get("/persons/{id}", id) //
+        ResultActions resultActions = mockMvc.perform(get(BASE_PATH + FIND_ONE_PATH, id) //
             .accept(SIREN_JSON));
 
         resultActions.andExpect(status().isNotFound()) //
@@ -111,7 +116,7 @@ class PersonControllerTest {
         Person person = new Person(Integer.toString(3), "Max Musterman", 42, "max@mustermann.de");
         doReturn(Optional.of(person)).when(personService).findOne(person.getId());
 
-        ResultActions resultActions = mockMvc.perform(get("/persons/{id}", person.getId()) //
+        ResultActions resultActions = mockMvc.perform(get(BASE_PATH + FIND_ONE_PATH, person.getId()) //
             .accept(SIREN_JSON));
 
         resultActions.andExpect(status().isOk()) //
@@ -124,7 +129,7 @@ class PersonControllerTest {
     void search_should_return_a_matching_response_if_no_resource_is_found() throws Exception {
         String responsePayload = jsonSource("search_should_return_a_matching_response_if_no_resource_is_found");
 
-        ResultActions resultActions = mockMvc.perform(get("/persons/search") //
+        ResultActions resultActions = mockMvc.perform(get(BASE_PATH + SEARCH_PATH) //
             .accept(SIREN_JSON) //
             .param("namePattern", ".*"));
 
@@ -137,7 +142,7 @@ class PersonControllerTest {
     void search_should_return_a_matching_response_if_some_resources_are_found() throws Exception {
         String responsePayload = jsonSource("search_should_return_a_matching_response_if_some_resources_are_found");
 
-        ResultActions resultActions = mockMvc.perform(get("/persons/search") //
+        ResultActions resultActions = mockMvc.perform(get(BASE_PATH + SEARCH_PATH) //
             .accept(SIREN_JSON) //
             .param("namePattern", ".*"));
 
@@ -152,7 +157,7 @@ class PersonControllerTest {
         Person person = new Person("1", input.getName(), input.getAge(), input.getEmail());
         doReturn(person).when(personService).insert(input);
 
-        ResultActions resultActions = mockMvc.perform(post("/persons") //
+        ResultActions resultActions = mockMvc.perform(post(BASE_PATH) //
             .accept(SIREN_JSON) //
             .contentType(APPLICATION_JSON) //
             .content(objectMapper.writeValueAsString(input)));
@@ -168,7 +173,7 @@ class PersonControllerTest {
         PersonInput input = new PersonInput("Max Mustermann", 42, "max@mustermann.de");
         doReturn(empty()).when(personService).update(id, input);
 
-        ResultActions resultActions = mockMvc.perform(put("/persons/{id}", id) //
+        ResultActions resultActions = mockMvc.perform(put(BASE_PATH + UPDATE_PATH, id) //
             .accept(SIREN_JSON) //
             .contentType(APPLICATION_JSON) //
             .content(objectMapper.writeValueAsString(input)));
@@ -184,7 +189,7 @@ class PersonControllerTest {
         doReturn(of(person)).when(personService).update(person.getId(), input);
         String responsePayload = jsonSource("update_should_return_a_matching_response_if_the_resource_is_available");
 
-        ResultActions resultActions = mockMvc.perform(put("/persons/{id}", person.getId()) //
+        ResultActions resultActions = mockMvc.perform(put(BASE_PATH + UPDATE_PATH, person.getId()) //
             .accept(SIREN_JSON) //
             .contentType(APPLICATION_JSON) //
             .content(objectMapper.writeValueAsString(input)));
@@ -199,7 +204,7 @@ class PersonControllerTest {
         String id = "3";
         doReturn(false).when(personService).delete(id);
 
-        ResultActions resultActions = mockMvc.perform(delete("/persons/{id}", id) //
+        ResultActions resultActions = mockMvc.perform(delete(BASE_PATH + DELETE_PATH, id) //
             .accept(SIREN_JSON));
 
         resultActions.andExpect(status().isNotFound()) //
@@ -211,7 +216,7 @@ class PersonControllerTest {
         String id = "3";
         doReturn(true).when(personService).delete(id);
 
-        ResultActions resultActions = mockMvc.perform(delete("/persons/{id}", id) //
+        ResultActions resultActions = mockMvc.perform(delete(BASE_PATH + DELETE_PATH, id) //
             .accept(SIREN_JSON));
 
         resultActions.andExpect(status().isOk()) //
