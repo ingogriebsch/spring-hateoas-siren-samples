@@ -78,7 +78,7 @@ class PersonModelAssembler implements SimpleRepresentationModelAssembler<Person>
 
     private static void addLinks(PagedModel<EntityModel<Person>> model) {
         Link selfLink = model.getRequiredLink(SELF);
-        selfLink = selfLink.andAffordance(afford(methodOn(PersonController.class).insert(null)));
+        selfLink = selfLink.andAffordance(afford(methodOn(controllerType).insert(null)));
 
         Links links = model.getLinks();
         links = links.merge(REPLACE_BY_REL, selfLink);
