@@ -37,7 +37,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>29.0-jre</version>
+            <version>30.0-jre</version>
         </dependency>
         <!--
             HINT Adding this dependency is all you need to do to set up the library.
