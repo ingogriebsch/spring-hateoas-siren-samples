@@ -51,6 +51,12 @@ class PersonModelAssembler implements SimpleRepresentationModelAssembler<Person>
     @NonNull
     private final PagedResourcesAssembler<Person> pagedResourcesAssembler;
 
+    public PagedModel<EntityModel<Person>> toPagedModel(@NonNull Page<Person> page) {
+        PagedModel<EntityModel<Person>> model = pagedResourcesAssembler.toModel(page, this);
+        addLinks(model);
+        return model;
+    }
+
     @Override
     public void addLinks(CollectionModel<EntityModel<Person>> model) {
         Link selfLink = linkTo(methodOn(controllerType).search(null)).withSelfRel() //
@@ -68,12 +74,6 @@ class PersonModelAssembler implements SimpleRepresentationModelAssembler<Person>
             .andAffordance(afford(methodOn(controllerType).delete(id)));
 
         model.add(selfLink);
-    }
-
-    public PagedModel<EntityModel<Person>> toPagedModel(@NonNull Page<Person> page) {
-        PagedModel<EntityModel<Person>> model = pagedResourcesAssembler.toModel(page, this);
-        addLinks(model);
-        return model;
     }
 
     private static void addLinks(PagedModel<EntityModel<Person>> model) {
