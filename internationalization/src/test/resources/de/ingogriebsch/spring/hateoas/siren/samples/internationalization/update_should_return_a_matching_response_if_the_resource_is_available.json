@@ -1,0 +1,43 @@
+{
+    "class": [
+        "entity"
+    ],
+    "properties": {
+        "id": "3",
+        "name": "Max Mustermann",
+        "age": 42,
+        "email": "max@mustermann.de"
+    },
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons/3",
+        "title": "The self link"
+    }],
+    "actions": [{
+        "name": "update",
+        "method": "PUT",
+        "href": "http://localhost/persons/3",
+        "title": "The update action",
+        "fields": [{
+            "name": "age",
+            "type": "number",
+            "title": "The age field"
+        },{
+            "name": "email",
+            "type": "text",
+            "title": "The email field"
+        },{
+            "name": "name",
+            "type": "text",
+            "title": "The name field"
+        }]
+    },{
+        "name": "delete",
+        "method": "DELETE",
+        "href": "http://localhost/persons/3",
+        "title": "The delete action"
+    }],
+    "title": "A person"
+}

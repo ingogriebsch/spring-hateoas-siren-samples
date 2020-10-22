@@ -1,0 +1,38 @@
+{
+    "class": [
+        "paged"
+    ],
+    "properties": {
+        "size": 20,
+        "totalElements": 0,
+        "totalPages": 0,
+        "number": 0
+    },
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons?page=0&size=20",
+        "title": "The self link"
+    }],
+    "actions": [{
+        "name": "insert",
+        "method": "POST",
+        "href": "http://localhost/persons",
+        "title": "The insert action",
+        "fields": [{
+            "name": "age",
+            "type": "number",
+            "title": "The age field"
+        },{
+            "name": "email",
+            "type": "text",
+            "title": "The email field"
+        },{
+            "name": "name",
+            "type": "text",
+            "title": "The name field"
+        }]
+    }],
+    "title": "A page"
+}

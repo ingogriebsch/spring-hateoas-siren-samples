@@ -1,0 +1,129 @@
+{
+    "class": [
+        "paged"
+    ],
+    "properties": {
+        "size": 20,
+        "totalElements": 2,
+        "totalPages": 1,
+        "number": 0
+    },
+    "entities": [{
+        "class": [
+            "entity"
+        ],
+        "rel": [
+            "item"
+        ],
+        "properties": {
+            "id": "1",
+            "name": "Max Mustermann",
+            "age": 42,
+            "email": "max@mustermann.de"
+        },
+        "links": [{
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost/persons/1",
+            "title": "The self link"
+        }],
+        "actions": [{
+            "name": "update",
+            "method": "PUT",
+            "href": "http://localhost/persons/1",
+            "title": "The update action",
+            "fields": [{
+                "name": "age",
+                "type": "number",
+                "title": "The age field"
+            },{
+                "name": "email",
+                "type": "text",
+                "title": "The email field"
+            },{
+                "name": "name",
+                "type": "text",
+                "title": "The name field"
+            }]
+        },{
+            "name": "delete",
+            "method": "DELETE",
+            "href": "http://localhost/persons/1",
+            "title": "The delete action"
+        }],
+        "title": "A person"
+    },{
+        "class": [
+            "entity"
+        ],
+        "rel": [
+            "item"
+        ],
+        "properties": {
+            "id": "2",
+            "name": "Petra Poster",
+            "age": 21,
+            "email": "petra@poster.de"
+        },
+        "links": [{
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost/persons/2",
+            "title": "The self link"
+        }],
+        "actions": [{
+            "name": "update",
+            "method": "PUT",
+            "href": "http://localhost/persons/2",
+            "title": "The update action",
+            "fields": [{
+                "name": "age",
+                "type": "number",
+                "title": "The age field"
+            },{
+                "name": "email",
+                "type": "text",
+                "title": "The email field"
+            },{
+                "name": "name",
+                "type": "text",
+                "title": "The name field"
+            }]
+        },{
+            "name": "delete",
+            "method": "DELETE",
+            "href": "http://localhost/persons/2",
+            "title": "The delete action"
+        }],
+        "title": "A person"
+    }],
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons?page=0&size=20",
+        "title": "The self link"
+    }],
+    "actions": [{
+        "name": "insert",
+        "method": "POST",
+        "href": "http://localhost/persons",
+        "title": "The insert action",
+        "fields": [{
+            "name": "age",
+            "type": "number",
+            "title": "The age field"
+        },{
+            "name": "email",
+            "type": "text",
+            "title": "The email field"
+        },{
+            "name": "name",
+            "type": "text",
+            "title": "The name field"
+        }]
+    }],
+    "title": "A page"
+}
