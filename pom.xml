@@ -37,6 +37,7 @@
         <module>internationalization</module>
         <module>serialization</module>
         <module>setup-boot</module>
+        <module>siren-model</module>
     </modules>
 
     <scm>

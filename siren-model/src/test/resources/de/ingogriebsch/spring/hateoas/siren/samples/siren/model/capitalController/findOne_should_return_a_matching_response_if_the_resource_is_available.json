@@ -1,0 +1,20 @@
+{
+    "class": [
+        "capital"
+    ],
+    "properties": {
+        "name": "New York"
+    },
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/countries/1/states/1/capital"
+    },{
+        "rel": [
+            "parent"
+        ],
+        "href": "http://localhost/countries/1/states/1"
+    }],
+    "title": "New York"
+}

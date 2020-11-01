@@ -1,0 +1,52 @@
+{
+    "class": [
+        "states", "page"
+    ],
+    "properties": {
+        "size": 20,
+        "totalElements": 2,
+        "totalPages": 1,
+        "number": 0
+    },
+    "entities": [{
+        "class": [
+            "state"
+        ],
+        "rel": [
+            "item"
+        ],
+        "properties": {
+            "name": "New York"
+        },
+        "links": [{
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost/countries/1/states/1"
+        }],
+        "title": "New York"
+    },{
+        "class": [
+            "state"
+        ],
+        "rel": [
+            "item"
+        ],
+        "properties": {
+            "name": "Texas"
+        },
+        "links": [{
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost/countries/1/states/2"
+        }],
+        "title": "Texas"
+    }],
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/countries/1/states?page=0&size=20"
+    }]
+}
