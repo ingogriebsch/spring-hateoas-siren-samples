@@ -7,11 +7,11 @@ A repository that contains examples for [Spring HATEOAS Siren][] to showcase how
 Each example marks the keypoints to consider with the keyword 'HINT'.
 This way you can easily find the parts that are of interest in the respective example.
 
-## Modules
-*   **internationalization** shows how to use the internationalization feature of the [Spring HATEOAS Siren][] library.
-*   **serialization** shows how to serialize different types of representation models with the [Spring HATEOAS Siren][] library.
-*   **setup-boot** shows how to set up the [Spring HATEOAS Siren][] library in a [Spring Boot][] application.
-*   **siren-model** shows how to build complex Siren models with the [Spring HATEOAS Siren][] library.
+## Examples
+*   **internationalization** shows how to use the internationalization feature of the library.
+*   **serialization** shows how to serialize different types of representation models with the library.
+*   **setup-boot** shows how to set up the library in a [Spring Boot][] application.
+*   **siren-model** shows how to build complex Siren models with the library.
 
 ## Note
 The example projects make use of the Lombok plugin. 
