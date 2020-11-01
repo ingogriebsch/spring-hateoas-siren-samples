@@ -35,6 +35,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+/**
+ * HINT If you want to test your controller through a test slice (@WebMvcTest in this case) you need to explicitly import the
+ * configuration of the Siren media-type. Otherwise the library is not included in the reduced application context and therefore
+ * not active while requesting resources through the controller.
+ * If testing the code through @SpringBootTest it is not necessary to import the configuration explicitly because in this case the
+ * whole application context is prepared in the same way as during the regular runtime of the application.
+ */
 @Import({ HypermediaConfiguration.class, SirenMediaTypeConfiguration.class })
 @WebMvcTest(CountryController.class)
 class CountryControllerTest {
