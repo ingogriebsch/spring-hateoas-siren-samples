@@ -64,7 +64,7 @@ class CountryModelAssembler implements RepresentationModelAssembler<Country, Rep
             .title(source.getName()) //
             .properties(singletonMap("name", source.getName())) //
             .linksAndActions(selfLink) //
-            .entities("states", states) //
+            .entities("state", states) //
             .build();
     }
 
