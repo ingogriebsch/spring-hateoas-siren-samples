@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * A {@link Service} implementation that is responsible for all use cases related to domain objects of type {@link Capital}.
  *
  * @author i.griebsch
  */

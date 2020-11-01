@@ -25,7 +25,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
- *
+ * This importer is execute during the startup of the service to import some sample data that is then available through the REST
+ * API.
  *
  * @author i.griebsch
  */

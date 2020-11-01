@@ -27,7 +27,11 @@ import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 
 /**
- *
+ * A {@link RepresentationModelAssembler} implementation that is responsible for converting domain objects of type {@link Capital}
+ * into corresponding {@link RepresentationModel}s.
+ * <p>
+ * HINT Implementing and using a RepresentationModelAssembler allows us to encapsulate the code that is responsible to create
+ * representation-models based on the given domain objects.
  *
  * @author i.griebsch
  */

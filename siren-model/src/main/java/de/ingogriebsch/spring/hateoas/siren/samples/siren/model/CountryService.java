@@ -29,7 +29,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
- *
+ * A {@link Service} implementation that is responsible for all use cases related to domain objects of type {@link Country}.
  *
  * @author i.griebsch
  */
