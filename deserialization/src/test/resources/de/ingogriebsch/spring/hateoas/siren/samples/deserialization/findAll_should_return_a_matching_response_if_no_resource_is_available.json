@@ -1,0 +1,11 @@
+{
+    "class": [
+        "collection"
+    ],
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons"
+    }]
+}

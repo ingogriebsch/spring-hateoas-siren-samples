@@ -1,0 +1,50 @@
+{
+    "class": [
+        "collection"
+    ],
+    "entities": [{
+        "class": [
+            "entity"
+        ],
+        "rel": [
+            "item"
+        ],
+        "properties": {
+            "id": "1",
+            "name": "Max Mustermann",
+            "age": 42,
+            "email": "max@mustermann.de"
+        },
+        "links": [{
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost/persons/1"
+        }]
+    },{
+        "class": [
+            "entity"
+        ],
+        "rel": [
+            "item"
+        ],
+        "properties": {
+            "id": "2",
+            "name": "Petra Poster",
+            "age": 21,
+            "email": "petra@poster.de"
+        },
+        "links": [{
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost/persons/2"
+        }]
+    }],
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons"
+    }]
+}

@@ -8,6 +8,7 @@ Each example marks the keypoints to consider with the keyword 'HINT'.
 This way you can easily find the parts that are of interest in the respective example.
 
 ## Examples
+*   **deserialization** shows how to deserialize different types of representation models with the library.
 *   **internationalization** shows how to use the internationalization feature of the library.
 *   **serialization** shows how to serialize different types of representation models with the library.
 *   **setup-boot** shows how to set up the library in a [Spring Boot][] application.

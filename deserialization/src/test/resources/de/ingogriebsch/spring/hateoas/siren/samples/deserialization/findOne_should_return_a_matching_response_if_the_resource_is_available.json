@@ -1,0 +1,17 @@
+{
+    "class": [
+        "entity"
+    ],
+    "properties": {
+        "id": "3",
+        "name": "Max Mustermann",
+        "age": 42,
+        "email": "max@mustermann.de"
+    },
+    "links": [{
+        "rel": [
+            "self"
+        ],
+        "href": "http://localhost/persons/3"
+    }]
+}
