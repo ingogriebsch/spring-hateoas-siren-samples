@@ -18,13 +18,19 @@ package de.ingogriebsch.spring.hateoas.siren.samples.serialization;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 
 /**
- * A {@link Configuration} class that configures all Hypermedia related {@link Bean}s.
+ * A {@link Configuration} class that configures all Hypermedia related things.
+ * <p>
+ * HINT Declaring @EnableHypermediaSupport here is not strictly necessary because the hypermedia related auto-configuration
+ * already defines it with some defaults. But defining it here gives you the chance to tweak and override the defaults the way you
+ * prefer in your project.
  *
  * @author i.griebsch
  */
 @Configuration
+@EnableHypermediaSupport(type = {})
 class HypermediaConfiguration {
 
     @Bean
