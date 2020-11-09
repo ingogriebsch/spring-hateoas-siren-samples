@@ -26,4 +26,4 @@ This code is open source software licensed under the [Apache 2.0 License][].
 [Lombok]: https://projectlombok.org/
 [Lombok download]: https://projectlombok.org/download/
 [Spring Boot]: https://spring.io/projects/spring-boot/
-[Spring HATEOAS Siren]: https://ingogriebsch.github.io/spring-hateoas-siren/
+[Spring HATEOAS Siren]: https://github.com/ingogriebsch/spring-hateoas-siren
