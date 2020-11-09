@@ -10,6 +10,7 @@ This way you can easily find the parts that are of interest in the respective ex
 ## Examples
 *   **deserialization** shows how to deserialize different types of representation models with the library.
 *   **internationalization** shows how to use the internationalization feature of the library.
+*   **ketting** shows how to use [Ketting][] together with the library in a [Spring Boot][] application.
 *   **serialization** shows how to serialize different types of representation models with the library.
 *   **setup-boot** shows how to set up the library in a [Spring Boot][] application.
 *   **siren-model** shows how to build complex Siren models with the library.
@@ -23,6 +24,7 @@ To get proper code navigation in your IDE, you must install it separately.
 This code is open source software licensed under the [Apache 2.0 License][].
 
 [Apache 2.0 License]: https://www.apache.org/licenses/LICENSE-2.0.html
+[Ketting]: https://github.com/badgateway/ketting
 [Lombok]: https://projectlombok.org/
 [Lombok download]: https://projectlombok.org/download/
 [Spring Boot]: https://spring.io/projects/spring-boot/

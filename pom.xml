@@ -36,6 +36,7 @@
     <modules>
         <module>deserialization</module>
         <module>internationalization</module>
+        <module>ketting</module>
         <module>serialization</module>
         <module>setup-boot</module>
         <module>siren-model</module>
