@@ -15,6 +15,9 @@
     <description>A repository that shows how to use the Ketting library together with the Spring HATEOAS Siren library in a Spring Boot application.</description>
 
     <properties>
+        <frontend-maven-plugin.version>1.10.3</frontend-maven-plugin.version>
+        <maven.frontend.skip>false</maven.frontend.skip>
+        <node.version>12.18.3</node.version>
         <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
     </properties>
 
@@ -62,6 +65,15 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${frontend-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin><!-- https://code.revelc.net/formatter-maven-plugin -->
                 <groupId>net.revelc.code.formatter</groupId>
@@ -70,6 +82,24 @@
                     <configFile>../etc/ide/eclipse.java-formatter.xml</configFile>
                 </configuration>
             </plugin>        
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <configuration>
+                    <nodeVersion>v${node.version}</nodeVersion>
+                    <skip>${maven.frontend.skip}</skip>
+                    <skipTests>${maven.test.skip}</skipTests>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install-node-js-and-npm-locally</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin><!-- https://docs.spring.io/spring-boot/docs/2.2.4.RELEASE/maven-plugin -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
