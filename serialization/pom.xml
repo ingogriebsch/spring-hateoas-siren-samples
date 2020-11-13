@@ -15,7 +15,7 @@
     <description>A repository that shows how to serialize different types of representation models with the Spring HATEOAS Siren library.</description>
 
     <properties>
-        <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
+        <spring-boot.version>2.4.0</spring-boot.version>
     </properties>
 
     <dependencyManagement>
