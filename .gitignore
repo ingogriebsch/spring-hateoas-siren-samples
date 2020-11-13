@@ -4,3 +4,5 @@ target/
 .classpath
 .factorypath
 .project
+node/
+node_modules/
