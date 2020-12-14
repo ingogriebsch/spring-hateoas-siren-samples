@@ -15,7 +15,7 @@
     <description>A repository that shows how to build complex Siren models with the Spring HATEOAS Siren library.</description>
 
     <properties>
-        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <spring-boot.version>2.4.1</spring-boot.version>
     </properties>
 
     <dependencyManagement>
