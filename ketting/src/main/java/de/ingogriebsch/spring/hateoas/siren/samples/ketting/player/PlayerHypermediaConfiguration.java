@@ -13,22 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.ingogriebsch.spring.hateoas.siren.samples.ketting;
+package de.ingogriebsch.spring.hateoas.siren.samples.ketting.player;
 
-import static org.springframework.boot.SpringApplication.run;
-
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.web.PagedResourcesAssembler;
 
 /**
- * The main entry point of the application.
+ *
  * 
- * @author Ingo Griebsch
- * @since 1.0.0
+ * @author i.griebsch
  */
-@SpringBootApplication
-public class Application {
+@Configuration
+class PlayerHypermediaConfiguration {
 
-    public static void main(String[] args) {
-        run(Application.class, args);
+    @Bean
+    PlayerModelAssembler playerModelAssembler(PagedResourcesAssembler<Player> pagedResourceAssembler) {
+        return new PlayerModelAssembler(pagedResourceAssembler);
+    }
+
+    @Bean
+    PlayerLinkProvider playerLinkProvider() {
+        return new PlayerLinkProvider();
     }
 }

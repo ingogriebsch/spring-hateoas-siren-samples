@@ -1,1 +1,1 @@
-spring:  main:    banner-mode: OFF
+spring:  jpa:    open-in-view: false  main:    banner-mode: OFF
