@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.ingogriebsch.spring.hateoas.siren.samples.ketting.player;
+package de.ingogriebsch.spring.hateoas.siren.samples.ketting.play;
 
 import static org.springframework.hateoas.UriTemplate.of;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -36,13 +36,13 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @author Ingo Griebsch
  */
 @RequiredArgsConstructor
-public class PlayerLinkProvider {
+public class PlayLinkProvider {
 
     @NonNull
     private final HateoasPageableHandlerMethodArgumentResolver pageableResolver;
 
     public Link findAll(@NonNull LinkRelation rel, Pageable pageable) {
-        Link link = linkTo(methodOn(PlayerController.class).findAll(pageable)).withRel(rel);
+        Link link = linkTo(methodOn(PlayController.class).findAll(pageable)).withRel(rel);
 
         if (pageable == null) {
             UriComponentsBuilder builder = fromUri(link.getTemplate().expand((Object) null));
@@ -53,9 +53,5 @@ public class PlayerLinkProvider {
         }
 
         return link;
-    }
-
-    public Link findOne(@NonNull LinkRelation rel, @NonNull Long id) {
-        return linkTo(methodOn(PlayerController.class).findOne(id)).withRel(rel);
     }
 }

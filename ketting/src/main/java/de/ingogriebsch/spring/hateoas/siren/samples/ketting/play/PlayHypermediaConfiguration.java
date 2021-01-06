@@ -18,6 +18,7 @@ package de.ingogriebsch.spring.hateoas.siren.samples.ketting.play;
 import de.ingogriebsch.spring.hateoas.siren.samples.ketting.player.PlayerLinkProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.web.HateoasPageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.PagedResourcesAssembler;
 
 /**
@@ -32,5 +33,10 @@ class PlayHypermediaConfiguration {
     PlayModelAssembler playModelAssembler(PagedResourcesAssembler<Play> pagedResourceAssembler,
         PlayerLinkProvider playerLinkProvider) {
         return new PlayModelAssembler(pagedResourceAssembler, playerLinkProvider);
+    }
+
+    @Bean
+    PlayLinkProvider playLinkProvider(HateoasPageableHandlerMethodArgumentResolver pageableResolver) {
+        return new PlayLinkProvider(pageableResolver);
     }
 }

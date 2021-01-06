@@ -17,6 +17,7 @@ package de.ingogriebsch.spring.hateoas.siren.samples.ketting.player;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.web.HateoasPageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.PagedResourcesAssembler;
 
 /**
@@ -33,7 +34,7 @@ class PlayerHypermediaConfiguration {
     }
 
     @Bean
-    PlayerLinkProvider playerLinkProvider() {
-        return new PlayerLinkProvider();
+    PlayerLinkProvider playerLinkProvider(HateoasPageableHandlerMethodArgumentResolver pageableResolver) {
+        return new PlayerLinkProvider(pageableResolver);
     }
 }
