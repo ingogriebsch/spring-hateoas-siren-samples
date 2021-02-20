@@ -1,5 +1,7 @@
 .cache/
 .settings/
+node/
+node_modules/
 target/
 .classpath
 .factorypath
