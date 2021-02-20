@@ -51,8 +51,8 @@ class ApplicationTest {
         Optional<Module> module = mappingInformations.stream().map(mi -> mi.getJacksonModule())
             .filter(m -> m.getModuleName().equals("siren-module")).findAny();
 
-        assertThat(module).get().extracting("version", type(Version.class))
-            .hasFieldOrPropertyWithValue("groupId", "de.ingogriebsch.hateoas")
-            .hasFieldOrPropertyWithValue("artifactId", "spring-hateoas-siren");
+        assertThat(module).get().extracting("_version", type(Version.class))
+            .hasFieldOrPropertyWithValue("_groupId", "de.ingogriebsch.hateoas")
+            .hasFieldOrPropertyWithValue("_artifactId", "spring-hateoas-siren");
     }
 }
