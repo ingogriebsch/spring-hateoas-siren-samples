@@ -14,10 +14,6 @@
     <name>Spring HATEOAS Siren Samples Setup Boot</name>
     <description>A repository that shows how to set up the Spring HATEOAS Siren library in a Spring Boot application.</description>
 
-    <properties>
-        <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
