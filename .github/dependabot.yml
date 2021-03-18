@@ -11,7 +11,7 @@ updates:
       - "type:improvement"
     open-pull-requests-limit: 10
     schedule:
-      interval: daily
+      interval: weekly
       time: '01:00'
   
   # Maintain dependencies for GitHub Actions
@@ -22,5 +22,5 @@ updates:
       - "type:improvement"
     open-pull-requests-limit: 10
     schedule:
-      interval: daily
+      interval: weekly
       time: '01:00'
