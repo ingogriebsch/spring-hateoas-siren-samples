@@ -8,6 +8,7 @@ import static org.assertj.core.api.InstanceOfAssertFactories.type;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -48,8 +49,11 @@ class ApplicationTest {
             context.getBeansOfType(HypermediaMappingInformation.class);
         Collection<HypermediaMappingInformation> mappingInformations = mappingInformationBeans.values();
 
-        Optional<Module> module = mappingInformations.stream().map(mi -> mi.getJacksonModule())
-            .filter(m -> m.getModuleName().equals("siren-module")).findAny();
+        Optional<Module> module = mappingInformations.stream() //
+            .map(mi -> mi.getJacksonModule()) //
+            .filter(Objects::nonNull) //
+            .filter(m -> m.getModuleName().equals("siren-module")) //
+            .findAny();
 
         assertThat(module).get().extracting("_version", type(Version.class))
             .hasFieldOrPropertyWithValue("_groupId", "de.ingogriebsch.hateoas")
