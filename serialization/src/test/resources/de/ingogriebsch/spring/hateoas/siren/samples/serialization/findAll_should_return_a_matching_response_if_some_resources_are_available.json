@@ -31,6 +31,7 @@
             "name": "update",
             "method": "PUT",
             "href": "http://localhost/persons/1",
+            "type": "application/json",
             "fields": [{
                 "name": "age",
                 "type": "number"
@@ -69,6 +70,7 @@
             "name": "update",
             "method": "PUT",
             "href": "http://localhost/persons/2",
+            "type": "application/json",
             "fields": [{
                 "name": "age",
                 "type": "number"
@@ -95,6 +97,7 @@
         "name": "insert",
         "method": "POST",
         "href": "http://localhost/persons",
+        "type": "application/json",
         "fields": [{
             "name": "age",
             "type": "number"

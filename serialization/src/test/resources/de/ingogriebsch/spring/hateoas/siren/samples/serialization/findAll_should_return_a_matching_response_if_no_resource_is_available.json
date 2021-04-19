@@ -18,6 +18,7 @@
         "name": "insert",
         "method": "POST",
         "href": "http://localhost/persons",
+        "type": "application/json",
         "fields": [{
             "name": "age",
             "type": "number"

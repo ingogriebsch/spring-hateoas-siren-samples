@@ -18,6 +18,7 @@
         "name": "update",
         "method": "PUT",
         "href": "http://localhost/persons/3",
+        "type": "application/json",
         "fields": [{
             "name": "age",
             "type": "number"

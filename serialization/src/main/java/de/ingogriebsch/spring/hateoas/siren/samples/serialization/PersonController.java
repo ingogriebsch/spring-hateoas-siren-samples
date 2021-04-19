@@ -16,6 +16,7 @@
 package de.ingogriebsch.spring.hateoas.siren.samples.serialization;
 
 import static org.springframework.hateoas.IanaLinkRelations.SELF;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.ResponseEntity.created;
 import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
@@ -77,12 +78,12 @@ class PersonController {
         return ok(personModelAssembler.toCollectionModel(personService.search(namePattern)));
     }
 
-    @PostMapping
+    @PostMapping(consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<Void> insert(@RequestBody PersonInput input) {
         return created(personModelAssembler.toModel(personService.insert(input)).getRequiredLink(SELF).toUri()).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<EntityModel<Person>> update(@PathVariable String id, @RequestBody PersonInput input) {
         return personService.update(id, input).map(p -> ok(personModelAssembler.toModel(p))).orElse(notFound().build());
     }

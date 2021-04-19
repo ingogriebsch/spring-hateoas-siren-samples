@@ -20,6 +20,7 @@
         "method": "POST",
         "href": "http://localhost/persons",
         "title": "The insert action",
+        "type": "application/json",
         "fields": [{
             "name": "age",
             "type": "number",

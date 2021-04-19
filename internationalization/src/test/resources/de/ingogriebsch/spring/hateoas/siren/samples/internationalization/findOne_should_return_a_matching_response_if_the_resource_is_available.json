@@ -20,6 +20,7 @@
         "method": "PUT",
         "href": "http://localhost/persons/3",
         "title": "The update action",
+        "type": "application/json",
         "fields": [{
             "name": "age",
             "type": "number",
