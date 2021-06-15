@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.config.EnableHypermediaSupport;
-import org.springframework.hateoas.config.EnableHypermediaSupport.HypermediaType;
 
 /**
  * A {@link Configuration} class that configures all Hypermedia related things.
@@ -31,9 +30,7 @@ import org.springframework.hateoas.config.EnableHypermediaSupport.HypermediaType
  * @author i.griebsch
  */
 @Configuration
-// FIXME It is necessary to configure at least one HypermediaType at the moment because of
-// https://github.com/spring-projects/spring-hateoas/issues/1521
-@EnableHypermediaSupport(type = { HypermediaType.HAL })
+@EnableHypermediaSupport(type = {})
 class HypermediaConfiguration {
 
     @Bean
