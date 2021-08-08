@@ -5,8 +5,8 @@
     "properties": {
         "id": "3",
         "name": "Max Mustermann",
-        "age": 42,
-        "email": "max@mustermann.de"
+        "email": "max@mustermann.de",
+        "birthday": "1970-01-01"
     },
     "links": [{
         "rel": [
@@ -20,8 +20,8 @@
         "href": "http://localhost/persons/3",
         "type": "application/json",
         "fields": [{
-            "name": "age",
-            "type": "number"
+            "name": "birthday",
+            "type": "date"
         },{
             "name": "email",
             "type": "text"

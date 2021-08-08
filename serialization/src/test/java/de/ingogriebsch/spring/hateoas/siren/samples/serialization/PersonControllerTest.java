@@ -25,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,8 +84,8 @@ class PersonControllerTest {
     @Test
     void findAll_should_return_a_matching_response_if_some_resources_are_available() throws Exception {
         List<Person> content = newArrayList( //
-            new Person("1", "Max Mustermann", 42, "max@mustermann.de"), //
-            new Person("2", "Petra Poster", 21, "petra@poster.de") //
+            new Person("1", "Max Mustermann", "max@mustermann.de", LocalDate.of(1970, 1, 1)), //
+            new Person("2", "Petra Poster", "petra@poster.de", LocalDate.of(1970, 1, 1)) //
         );
         Pageable pageable = PageRequest.of(0, 20);
         doReturn(new PageImpl<>(content, pageable, content.size())).when(personService).findAll(pageable);
@@ -113,7 +114,7 @@ class PersonControllerTest {
     @Test
     void findOne_should_return_a_matching_response_if_the_resource_is_available() throws Exception {
         String responsePayload = jsonSource("findOne_should_return_a_matching_response_if_the_resource_is_available");
-        Person person = new Person(Integer.toString(3), "Max Musterman", 42, "max@mustermann.de");
+        Person person = new Person(Integer.toString(3), "Max Musterman", "max@mustermann.de", LocalDate.of(1970, 1, 1));
         doReturn(Optional.of(person)).when(personService).findOne(person.getId());
 
         ResultActions resultActions = mockMvc.perform(get(BASE_PATH + FIND_ONE_PATH, person.getId()) //
@@ -153,8 +154,8 @@ class PersonControllerTest {
 
     @Test
     void insert_should_return_a_matching_response() throws Exception {
-        PersonInput input = new PersonInput("Max Mustermann", 42, "max@mustermann.de");
-        Person person = new Person("1", input.getName(), input.getAge(), input.getEmail());
+        PersonInput input = new PersonInput("Max Mustermann", "max@mustermann.de", LocalDate.now());
+        Person person = new Person("1", input.getName(), input.getEmail(), input.getBirthday());
         doReturn(person).when(personService).insert(input);
 
         ResultActions resultActions = mockMvc.perform(post(BASE_PATH) //
@@ -170,7 +171,7 @@ class PersonControllerTest {
     @Test
     void update_should_return_a_matching_response_if_the_resource_is_not_available() throws Exception {
         String id = "3";
-        PersonInput input = new PersonInput("Max Mustermann", 42, "max@mustermann.de");
+        PersonInput input = new PersonInput("Max Mustermann", "max@mustermann.de", LocalDate.now());
         doReturn(empty()).when(personService).update(id, input);
 
         ResultActions resultActions = mockMvc.perform(put(BASE_PATH + UPDATE_PATH, id) //
@@ -184,8 +185,8 @@ class PersonControllerTest {
 
     @Test
     void update_should_return_a_matching_response_if_the_resource_is_available() throws JsonProcessingException, Exception {
-        PersonInput input = new PersonInput("Max Mustermann", 42, "max@mustermann.de");
-        Person person = new Person("3", input.getName(), input.getAge(), input.getEmail());
+        PersonInput input = new PersonInput("Max Mustermann", "max@mustermann.de", LocalDate.of(1970, 1, 1));
+        Person person = new Person("3", input.getName(), input.getEmail(), input.getBirthday());
         doReturn(of(person)).when(personService).update(person.getId(), input);
         String responsePayload = jsonSource("update_should_return_a_matching_response_if_the_resource_is_available");
 

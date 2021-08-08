@@ -15,6 +15,8 @@
  */
 package de.ingogriebsch.spring.hateoas.siren.samples.serialization;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -29,6 +31,6 @@ class Person {
 
     private final String id;
     private String name;
-    private Integer age;
     private String email;
+    private LocalDate birthday;
 }

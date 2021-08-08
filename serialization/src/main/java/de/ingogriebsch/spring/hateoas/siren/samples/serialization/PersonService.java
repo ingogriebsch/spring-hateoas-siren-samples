@@ -22,6 +22,7 @@ import static java.util.stream.Collectors.toList;
 
 import static com.google.common.collect.Maps.newHashMap;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
 
@@ -57,7 +58,7 @@ class PersonService {
     }
 
     Person insert(@NonNull PersonInput input) {
-        Person person = new Person(valueOf(persons.size() + 1), input.getName(), input.getAge(), input.getEmail());
+        Person person = new Person(valueOf(persons.size() + 1), input.getName(), input.getEmail(), input.getBirthday());
         persons.put(person.getId(), person);
         return person;
     }
@@ -79,13 +80,13 @@ class PersonService {
         if (name != null) {
             person.setName(name);
         }
-        Integer age = input.getAge();
-        if (age != null) {
-            person.setAge(age);
-        }
         String email = input.getEmail();
         if (email != null) {
             person.setEmail(email);
+        }
+        LocalDate birthday = input.getBirthday();
+        if (birthday != null) {
+            person.setBirthday(birthday);
         }
         return person;
     }

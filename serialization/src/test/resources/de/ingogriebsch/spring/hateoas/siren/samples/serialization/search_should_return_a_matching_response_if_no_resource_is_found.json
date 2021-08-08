@@ -14,8 +14,8 @@
         "href": "http://localhost/persons",
         "type": "application/json",
         "fields": [{
-            "name": "age",
-            "type": "number"
+            "name": "birthday",
+            "type": "date"
         },{
             "name": "email",
             "type": "text"

@@ -15,6 +15,7 @@ import static org.springframework.http.HttpMethod.PUT;
 import static org.springframework.web.util.UriComponentsBuilder.fromPath;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +41,7 @@ class PersonModelAssemblerTest {
             new PagedResourcesAssembler<>(new HateoasPageableHandlerMethodArgumentResolver(), fromPath(BASE_PATH).build());
         PersonModelAssembler assembler = new PersonModelAssembler(pagedResourcesAssembler);
 
-        Person person = new Person("1", "Max Mustermann", 42, "max@mustermann.de");
+        Person person = new Person("1", "Max Mustermann", "max@mustermann.de", LocalDate.of(1970, 1, 1));
         EntityModel<Person> model = assembler.toModel(person);
 
         assertThat(model.getContent()).isEqualTo(person);
@@ -66,8 +67,9 @@ class PersonModelAssemblerTest {
             new PagedResourcesAssembler<>(new HateoasPageableHandlerMethodArgumentResolver(), fromPath(BASE_PATH).build());
         PersonModelAssembler assembler = new PersonModelAssembler(pagedResourcesAssembler);
 
-        List<Person> persons = Lists.newArrayList(new Person("1", "Max Mustermann", 42, "max@mustermann.de"),
-            new Person("2", "Petra Poster", 21, "petra@poster.de"));
+        List<Person> persons =
+            Lists.newArrayList(new Person("1", "Max Mustermann", "max@mustermann.de", LocalDate.of(1970, 1, 1)),
+                new Person("2", "Petra Poster", "petra@poster.de", LocalDate.of(1970, 1, 1)));
         CollectionModel<EntityModel<Person>> model = assembler.toCollectionModel(persons);
 
         assertThat(model).hasSize(2);
@@ -91,8 +93,9 @@ class PersonModelAssemblerTest {
             new PagedResourcesAssembler<>(new HateoasPageableHandlerMethodArgumentResolver(), fromPath(BASE_PATH).build());
         PersonModelAssembler assembler = new PersonModelAssembler(pagedResourcesAssembler);
 
-        List<Person> persons = Lists.newArrayList(new Person("1", "Max Mustermann", 42, "max@mustermann.de"),
-            new Person("2", "Petra Poster", 21, "petra@poster.de"));
+        List<Person> persons =
+            Lists.newArrayList(new Person("1", "Max Mustermann", "max@mustermann.de", LocalDate.of(1970, 1, 1)),
+                new Person("2", "Petra Poster", "petra@poster.de", LocalDate.of(1970, 1, 1)));
         Pageable pageable = PageRequest.of(0, 20);
         PagedModel<EntityModel<Person>> model = assembler.toPagedModel(PageUtils.toPage(persons, pageable));
 
