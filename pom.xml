@@ -4,7 +4,7 @@
 
     <groupId>de.ingogriebsch.hateoas</groupId>
     <artifactId>spring-hateoas-siren-samples</artifactId>
-    <version>1.3.0</version>
+    <version>1.4.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Spring HATEOAS Siren Samples</name>
@@ -65,7 +65,7 @@
             <dependency>
                 <groupId>de.ingogriebsch.hateoas</groupId>
                 <artifactId>spring-hateoas-siren</artifactId>
-                <version>1.3.0</version>
+                <version>1.4.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
