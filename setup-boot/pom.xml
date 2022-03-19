@@ -16,13 +16,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- FIXME It is currently necessary to explicitly define the version of the library here to override the managed Spring 
-                boot version. Otherwise the used Sprint HATEOAS Siren version references an outdated Spring HATEOAS version at runtime. -->
-            <dependency>
-                <groupId>org.springframework.hateoas</groupId>
-                <artifactId>spring-hateoas</artifactId>
-                <version>1.4.0</version>
-            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
