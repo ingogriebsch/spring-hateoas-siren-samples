@@ -12,6 +12,6 @@
         "rel": [
             "self"
         ],
-        "href": "http://localhost/persons/3"
+        "href": "http://localhost/persons/3{?sink}"
     }]
 }

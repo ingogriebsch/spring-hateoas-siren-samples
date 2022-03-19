@@ -19,7 +19,7 @@
             "rel": [
                 "self"
             ],
-            "href": "http://localhost/persons/1"
+            "href": "http://localhost/persons/1{?sink}"
         }]
     },{
         "class": [
@@ -38,13 +38,13 @@
             "rel": [
                 "self"
             ],
-            "href": "http://localhost/persons/2"
+            "href": "http://localhost/persons/2{?sink}"
         }]
     }],
     "links": [{
         "rel": [
             "self"
         ],
-        "href": "http://localhost/persons"
+        "href": "http://localhost/persons{?sink}"
     }]
 }

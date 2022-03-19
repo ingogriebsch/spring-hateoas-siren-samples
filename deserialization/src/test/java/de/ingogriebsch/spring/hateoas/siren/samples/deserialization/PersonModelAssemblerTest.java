@@ -1,15 +1,12 @@
 package de.ingogriebsch.spring.hateoas.siren.samples.deserialization;
 
 import static de.ingogriebsch.spring.hateoas.siren.MediaTypes.SIREN_JSON;
-import static de.ingogriebsch.spring.hateoas.siren.samples.deserialization.PersonController.BASE_PATH;
-import static de.ingogriebsch.spring.hateoas.siren.samples.deserialization.PersonController.FIND_ONE_PATH;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.list;
 import static org.assertj.core.groups.Tuple.tuple;
 import static org.springframework.hateoas.IanaLinkRelations.SELF;
 import static org.springframework.http.HttpMethod.GET;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +16,6 @@ import org.springframework.hateoas.Affordance;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
-import org.springframework.web.util.DefaultUriBuilderFactory;
-import org.springframework.web.util.UriTemplate;
 
 class PersonModelAssemblerTest {
 
@@ -35,11 +30,8 @@ class PersonModelAssemblerTest {
         assertThat(model.getLinks()).extracting("rel").containsExactlyInAnyOrder(SELF);
 
         Optional<Link> selfLink = model.getLinks().getLink(SELF);
-        URI selfLinkHref = new DefaultUriBuilderFactory().builder() //
-            .path(BASE_PATH) //
-            .path(FIND_ONE_PATH) //
-            .build(person.getId());
-        assertThat(selfLink).get().hasFieldOrPropertyWithValue("href", selfLinkHref.toString());
+
+        assertThat(selfLink).get().hasFieldOrPropertyWithValue("href", "/persons/1{?sink}");
 
         assertThat(selfLink).get() //
             .extracting("affordances", list(Affordance.class)) //
@@ -61,8 +53,7 @@ class PersonModelAssemblerTest {
         assertThat(model.getLinks()).extracting("rel").containsExactlyInAnyOrder(SELF);
 
         Optional<Link> selfLink = model.getLinks().getLink(SELF);
-        UriTemplate uriTemplate = new UriTemplate(BASE_PATH);
-        assertThat(selfLink).get().hasFieldOrPropertyWithValue("href", uriTemplate.toString());
+        assertThat(selfLink).get().hasFieldOrPropertyWithValue("href", "/persons{?sink}");
 
         assertThat(selfLink).get() //
             .extracting("affordances", list(Affordance.class)) //

@@ -6,6 +6,6 @@
         "rel": [
             "self"
         ],
-        "href": "http://localhost/persons"
+        "href": "http://localhost/persons{?sink}"
     }]
 }
